@@ -32,6 +32,11 @@ export default function Navbar() {
                         <FontAwesomeIcon style={{ color: "white" }} icon={isToggled ? faSun : faMoon} />
                     </label>
                 </div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">About Us</a>
+                    </li>
+                </ul>
             </nav>
         </div>
     );
