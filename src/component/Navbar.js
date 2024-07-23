@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import '../custom/custom.css';
 import $ from "jquery";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
     const [isToggled, setIsToggled] = useState(false);
@@ -34,7 +35,10 @@ export default function Navbar() {
                 </div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">About Us</a>
+                        <Link class="nav-link" to="/">Home</Link>
+                    </li>
+                    <li class="nav-item">
+                        <Link class="nav-link" to="/about">About Us</Link>
                     </li>
                 </ul>
             </nav>
