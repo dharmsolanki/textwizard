@@ -1,38 +1,25 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import '../custom/custom.css';
-import $ from "jquery";
 import { Link } from 'react-router-dom';
+import { Switch } from '@mui/material';
 
 export default function Navbar() {
     const [isToggled, setIsToggled] = useState(false);
+    const [myStyle, setMyStyle] = useState("light");
 
     const handleChange = () => {
         setIsToggled(!isToggled);
         if (!isToggled) {
-            document.body.style.background = "#1E1E1E";
-            document.body.style.color = "white";
-            $("#myInput").css("background-color", "gray");
-            $("#myInput").css("color", "white");
+            setMyStyle("dark")
         } else {
-            document.body.style.background = "";
-            document.body.style.color = "";
-            $("#myInput").css("background-color", "");
-            $("#myInput").css("color", "");
+            setMyStyle("light")        
         }
     };
 
     return (
         <div>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/">TextWizard</a>
-                <div class="form-check form-switch">
-                    <input class="form-check-input" type="checkbox" onChange={handleChange} role="switch" id="flexSwitchCheckChecked" checked={isToggled} />
-                    <label className="form-check-label" htmlFor="flexSwitchCheckChecked">
-                        <FontAwesomeIcon style={{ color: "white" }} icon={isToggled ? faSun : faMoon} />
-                    </label>
-                </div>
+            <nav className={`navbar navbar-expand-lg navbar-${myStyle} bg-${myStyle}`}>
+                <Link className="navbar-brand" to="/">TextWizard</Link>
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <Link class="nav-link" to="/">Home</Link>
@@ -41,6 +28,7 @@ export default function Navbar() {
                         <Link class="nav-link" to="/about">About Us</Link>
                     </li>
                 </ul>
+                <Switch color="warning" onChange={handleChange} />
             </nav>
         </div>
     );

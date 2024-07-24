@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
@@ -50,8 +50,10 @@ export default function Home() {
     const countWord = (input) => {
         return input.trim().split(/\s+/).filter(word => word.length > 0).length;
     }
+
+  
     return (
-        <div className='container my-3'>
+        <div className={'container my-3'}>
             <Form>
                 <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Enter Text Here</Form.Label>
