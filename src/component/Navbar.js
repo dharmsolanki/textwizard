@@ -41,6 +41,9 @@ export default function Navbar() {
                     <li className="nav-item">
                         <Link className="nav-link" to="/about">About Us</Link>
                     </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/register">Sign Up</Link>
+                    </li>
                     <li className='nav-item'>
                         <Switch color="warning" onChange={handleChange} checked={checked}/>
                         <FontAwesomeIcon icon={!checked ? faMoon : faSun} />
