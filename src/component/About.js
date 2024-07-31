@@ -2,56 +2,35 @@ import React from 'react';
 
 export default function About() {
   return (
-    <div style={{ padding: '40px', maxWidth: '800px', margin: '0 auto', lineHeight: '1.6' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '20px' }}>About Us</h1>
-      <section>
-        <h2>Our Story</h2>
-        <p>
-          Welcome to TextWizard, your number one source for all things text manipulation. We're dedicated to providing you the best of text tools, with a focus on dependability, customer service, and uniqueness.
-        </p>
-        <p>
-          Founded in 2024 by a passionate team of developers, TextWizard has come a long way from its beginnings. When we first started out, our passion for creating innovative and easy-to-use text manipulation tools drove us to start our own business.
-        </p>
-      </section>
-
-      <section style={{ marginTop: '20px' }}>
-        <h2>Our Mission</h2>
-        <p>
-          At TextWizard, our mission is simple: to make text manipulation easy and accessible for everyone. Whether you're a student, professional, or hobbyist, our tools are designed to help you achieve your text processing needs efficiently and effectively.
-        </p>
-      </section>
-
-      <section style={{ marginTop: '20px' }}>
-        <h2>Our Values</h2>
-        <ul>
-          <li><strong>Innovation:</strong> Continuously improving our tools to provide the best user experience.</li>
-          <li><strong>Customer Focus:</strong> Listening to our users and adapting to their needs.</li>
-          <li><strong>Quality:</strong> Ensuring our products are reliable and effective.</li>
+    <div className='container my-5'>
+      <div className="title text-left">
+        <h5>About Us</h5>
+        <p>Welcome to TextWizard, your ultimate destination for all your text manipulation needs. Whether you're looking to convert text to upper-case, lower-case, copy text with ease, or clear text quickly, we've got you covered. Our tools are designed to make text processing simple and efficient for everyone.</p>
+      </div>
+      <div className="title text-left">
+        <h5>Our Story</h5>
+        <p>Founded in 2024 by a dedicated team of developers, TextWizard was born out of a passion for creating innovative and user-friendly text manipulation tools. We understand the importance of having reliable and accessible tools, whether you're a student, professional, or just someone who needs to manage text efficiently. Our journey began with a single idea: to simplify text manipulation for everyone.</p>
+      </div>
+      <div className="title text-left">
+        <h5>Our Mission</h5>
+        <p>At TextWizard, our mission is straightforward: to make text manipulation easy and accessible for everyone. We aim to provide top-notch tools that save you time and effort, allowing you to focus on what matters most. Our commitment to quality and user satisfaction drives us to continuously improve and expand our services.</p>
+      </div>
+      <div className="title text-left">
+        <h5>Meet the Team</h5>
+        <p>Our team is a group of passionate professionals who are dedicated to technology and innovation. We work tirelessly to develop and improve our tools, ensuring that they meet the diverse needs of our users. Our commitment to excellence is reflected in every aspect of our work.</p>
+      </div>
+      <div className="title text-left">
+        <h5>Our Values</h5>
+        <ul className="list-group">
+          <li className="list-group-item"><b>Innovation:</b> We are constantly seeking new ways to enhance our tools and provide the best user experience possible.</li>
+          <li className="list-group-item"><b>Customer Focus:</b> Your feedback is invaluable to us. We listen to our users and adapt our services to meet your needs.</li>
+          <li className="list-group-item"><b>Quality:</b> We are dedicated to ensuring that our products are reliable, effective, and easy to use.</li>
         </ul>
-      </section>
-
-      <section style={{ marginTop: '20px' }}>
-        <h2>Meet the Team</h2>
-        <p>
-          Our team is a group of dedicated professionals who are passionate about technology and innovation. We work tirelessly to develop and improve our tools to meet the needs of our diverse user base.
-        </p>
-      </section>
-
-      <section style={{ marginTop: '20px' }}>
-        <h2>Contact Us</h2>
-        <p>
-          We hope you enjoy our products as much as we enjoy offering them to you. If you have any questions or comments, please don't hesitate to contact us. We're here to help!
-        </p>
-        <p>Email: support@textwizard.com</p>
-        <p>Phone: +1 (123) 456-7890</p>
-      </section>
-
-      <section style={{ marginTop: '20px', textAlign: 'center' }}>
-        <p>
-          Sincerely,<br />
-          <strong>The TextWizard Team</strong>
-        </p>
-      </section>
+      </div>
+      <div className="title text-left my-2">
+        <p>Sincerely,</p>
+        <h4>The TextWizard Team</h4>
+      </div>
     </div>
   );
 }

@@ -24,9 +24,9 @@ export default function Signup() {
             setFormSubmitted(true);
         }
 
-        window.localStorage.setItem('name', signUpInfo.name);
-        window.localStorage.setItem('email', signUpInfo.email);
-        window.localStorage.setItem('password', signUpInfo.password);
+        const storedFormData = JSON.parse(localStorage.getItem('formData')) || [];
+        storedFormData.push(signUpInfo);
+        localStorage.setItem('formData', JSON.stringify(storedFormData));
 
         setSignUpInfo({
             name: '',
