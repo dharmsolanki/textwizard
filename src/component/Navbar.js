@@ -36,7 +36,7 @@ export default function Navbar() {
                 <Link className="navbar-brand" to="/">TextWizard</Link>
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/">Home</Link>
+                        <Link className="nav-link" to="/home">Home</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/about">About Us</Link>
@@ -45,7 +45,7 @@ export default function Navbar() {
                         <Link className="nav-link" to="/register">Sign Up</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/login">Login</Link>
+                        <Link className="nav-link" to="/">Login</Link>
                     </li>
                     <li className='nav-item'>
                         <Switch color="warning" onChange={handleChange} checked={checked}/>

@@ -23,7 +23,7 @@ export default function Login() {
         }));
     };
 
-    function compareSingleToMultiple(singleObj, multipleObjs) {
+    const compareSingleToMultiple = (singleObj, multipleObjs) => {
         return multipleObjs.filter(obj =>
             Object.keys(singleObj).every(key => singleObj[key] === obj[key])
         );
@@ -34,7 +34,8 @@ export default function Login() {
         const matchingObjects = compareSingleToMultiple(loginInfo, usersData);
         if (matchingObjects.length == 1) {
             setLoggedIn(true);
-            navigate('/');
+            navigate('/home');
+            localStorage.setItem('loggedIn',true);
         }
         else {
             setLoggedIn(false);
