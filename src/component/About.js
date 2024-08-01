@@ -1,14 +1,7 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 
 export default function About() {
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!localStorage.getItem("isLoggedIn")) {
-      navigate("/");
-    }
-  }, []);
   return (
     <div className="container my-5">
       <div className="title text-left">

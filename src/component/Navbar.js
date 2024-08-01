@@ -46,14 +46,14 @@ export default function Navbar() {
         </Link>
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link" to="/home">
+            <Link className="nav-link" to={localStorage.getItem('isLoggedIn') ? "user/home" : "/"}>
               Home
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/about">
+            {localStorage.getItem("isLoggedIn") ? <Link className="nav-link" to={localStorage.getItem('isLoggedIn') ? "user/about" : "/"}>
               About Us
-            </Link>
+            </Link> : ''}
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/register">

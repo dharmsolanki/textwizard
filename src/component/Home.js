@@ -55,10 +55,22 @@ export default function Home() {
       .split(/\s+/)
       .filter((word) => word.length > 0).length;
   };
-  useEffect(() => {
-    if (!localStorage.getItem("isLoggedIn")) {
-      navigate("/");
+
+  const handleRemoveExtraSpaces = () => {
+    var result = input.replace(/^\s+|\s+$/gm, "");
+    setInput(result);
+  };
+
+  const handleFindAndReplace = () => {
+    const findText = prompt("Find Text");
+    const replaceText = prompt("Enter the replacement text:");
+    if (findText && replaceText !== null) {
+      const regex = new RegExp(findText, "i");
+      setInput(input.replace(regex, replaceText));
     }
+  };
+
+  useEffect(() => {
     setTimeout(() => {
       localStorage.removeItem("isLoggedIn");
       navigate("/");
@@ -79,14 +91,20 @@ export default function Home() {
             onChange={handleChange}
           />
         </Form.Group>
-        <Button variant="success" onClick={handleClear}>
+        <Button variant="success mx-2" onClick={handleClear}>
           Clear Text
         </Button>
         <Button variant="success mx-2" onClick={handleUpperCase}>
           Uppercase Text
         </Button>
-        <Button variant="success" onClick={handleLowerCase}>
+        <Button variant="success mx-2" onClick={handleLowerCase}>
           Lowercase Text
+        </Button>
+        <Button variant="success mx-2" onClick={handleRemoveExtraSpaces}>
+          Remove Extra Spaces
+        </Button>
+        <Button variant="success mx-2" onClick={handleFindAndReplace}>
+          Find and Replace
         </Button>
         <Button variant="success mx-2" onClick={handleCopyText}>
           Copy Text

@@ -5,6 +5,7 @@ import Navbar from "./component/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Signup from "./component/Signup";
 import Login from "./component/Login";
+import PrivateRoutes from "./component/PrivateRoutes";
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/user" element={<PrivateRoutes />}>
+            <Route path="home" element={<Home />} />
+            <Route path="about" element={<About />} />
+          </Route>
           <Route path="/register" element={<Signup />} />
           <Route path="/" element={<Login />} />
         </Routes>

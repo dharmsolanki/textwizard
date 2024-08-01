@@ -34,7 +34,7 @@ export default function Login() {
     const matchingObjects = compareSingleToMultiple(loginInfo, usersData);
     if (matchingObjects.length == 1) {
       setLoggedIn(true);
-      navigate("/home");
+      navigate("user/home");
       localStorage.setItem("isLoggedIn", true);
     } else {
       setLoggedIn(false);
@@ -42,14 +42,14 @@ export default function Login() {
     }
   };
 
-  useEffect(() => {
-    setLoggedIn(localStorage.getItem("isLoggedIn") ? true : false);
-  }, []);
+//   useEffect(() => {
+//     setLoggedIn(localStorage.getItem("isLoggedIn") ? true : false);
+//   }, []);
 
   useEffect(() => {
     if (loggedIn) {
       toast.success("Login Success.");
-      navigate("/home");
+      navigate("user/home");
     }
   }, [loggedIn]);
 
