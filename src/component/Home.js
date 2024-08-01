@@ -59,6 +59,10 @@ export default function Home() {
     if (!localStorage.getItem("isLoggedIn")) {
       navigate("/");
     }
+    setTimeout(() => {
+      localStorage.removeItem("isLoggedIn");
+      navigate("/");
+    }, 30 * 60 * 1000);
   }, []);
 
   return (
