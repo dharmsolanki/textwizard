@@ -37,46 +37,65 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div>
-      <nav
-        className={`navbar navbar-expand-lg navbar-${newTheme} bg-${newTheme}`}
-      >
-        <Link className="navbar-brand" to="/">
-          TextWizard
-        </Link>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link className="nav-link" to={localStorage.getItem('isLoggedIn') ? "user/home" : "/"}>
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            {localStorage.getItem("isLoggedIn") ? <Link className="nav-link" to={localStorage.getItem('isLoggedIn') ? "user/about" : "/"}>
-              About Us
-            </Link> : ''}
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/register">
-              Sign Up
-            </Link>
-          </li>
-          <li className="nav-item">
-            {localStorage.getItem("isLoggedIn") ? (
-              <Link className="nav-link" to="/" onClick={handleLogout}>
-                Logout
+    <>
+      <div>
+        <nav
+          className={`navbar navbar-expand-lg navbar-${newTheme} bg-${newTheme}`}
+        >
+          <Link
+            className="navbar-brand"
+            to={localStorage.getItem("isLoggedIn") ? "user/home" : "/"}
+          >
+            TextWizard
+          </Link>
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link
+                className="nav-link"
+                to={localStorage.getItem("isLoggedIn") ? "user/home" : "/"}
+              >
+                Home
               </Link>
-            ) : (
-              <Link className="nav-link" to="/">
-                Login
+            </li>
+            <li className="nav-item">
+              {localStorage.getItem("isLoggedIn") ? (
+                <Link
+                  className="nav-link"
+                  to={localStorage.getItem("isLoggedIn") ? "user/about" : "/"}
+                >
+                  About Us
+                </Link>
+              ) : (
+                ""
+              )}
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/register">
+                Sign Up
               </Link>
-            )}
-          </li>
-          <li className="nav-item">
-            <Switch color="warning" onChange={handleChange} checked={checked} />
-            <FontAwesomeIcon icon={!checked ? faMoon : faSun} />
-          </li>
-        </ul>
-      </nav>
-    </div>
+            </li>
+            <li className="nav-item">
+              {localStorage.getItem("isLoggedIn") ? (
+                <Link className="nav-link" to="/" onClick={handleLogout}>
+                  Logout
+                </Link>
+              ) : (
+                <Link className="nav-link" to="/">
+                  Login
+                </Link>
+              )}
+            </li>
+            <li className="nav-item">
+              <Switch
+                color="warning"
+                onChange={handleChange}
+                checked={checked}
+              />
+              <FontAwesomeIcon icon={!checked ? faMoon : faSun} />
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 }

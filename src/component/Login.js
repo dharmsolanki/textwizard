@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,12 +7,11 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
-
+  const [spinner, setSpinner] = useState(false);
   const [loginInfo, setLoginInfo] = useState({
     email: "",
     password: "",
   });
-  const [loggedIn, setLoggedIn] = useState(false);
   const usersData = JSON.parse(localStorage.getItem("formData"));
 
   const handleChange = (event) => {
@@ -32,26 +31,17 @@ export default function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     const matchingObjects = compareSingleToMultiple(loginInfo, usersData);
-    if (matchingObjects.length == 1) {
-      setLoggedIn(true);
-      navigate("user/home");
+    if (matchingObjects.length === 1) {
+      toast.success("Login Success.");
       localStorage.setItem("isLoggedIn", true);
+      setSpinner(true);
+      setTimeout(() => {
+        navigate("user/home");
+      }, 2000);
     } else {
-      setLoggedIn(false);
       toast.error("Invalid Credentials.");
     }
   };
-
-//   useEffect(() => {
-//     setLoggedIn(localStorage.getItem("isLoggedIn") ? true : false);
-//   }, []);
-
-  useEffect(() => {
-    if (loggedIn) {
-      toast.success("Login Success.");
-      navigate("user/home");
-    }
-  }, [loggedIn]);
 
   return (
     <div className="container my-5">
@@ -85,7 +75,13 @@ export default function Login() {
               className="w-100"
               onClick={handleLogin}
             >
-              Login
+              {spinner ? (
+                <div class="spinner-border text-light" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              ) : (
+                "Login"
+              )}
             </Button>
           </Form>
         </Col>

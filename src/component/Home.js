@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { Button } from "react-bootstrap";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const navigate = useNavigate();
   const [input, setInput] = useState("");
 
   const handleChange = (e) => {
@@ -69,13 +67,6 @@ export default function Home() {
       setInput(input.replace(regex, replaceText));
     }
   };
-
-  useEffect(() => {
-    setTimeout(() => {
-      localStorage.removeItem("isLoggedIn");
-      navigate("/");
-    }, 30 * 60 * 1000);
-  }, []);
 
   return (
     <div className={"container my-3"}>
